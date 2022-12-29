@@ -245,5 +245,6 @@ button,
 
 .btn-selected {
   background-color: var(--accent);
-  color: white
+  color: white;
+  font-weight: 700;
 }

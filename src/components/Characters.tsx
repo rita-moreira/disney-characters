@@ -22,6 +22,7 @@ const Characters = () => {
         });
     } else {
       setCharacters(favorites)
+      setTotalPages(Math.ceil(favorites.length / 50))
     }
   }, [all, currentPage, favorites]);
 
@@ -54,13 +55,13 @@ const Characters = () => {
           return <Card isFav={isFav ? true : false} onFavClick={onFavClick} key={character._id} character={character} />;
         })}
       </div>
-      <div className="paper">
+      {totalPages > 1 && <div className="paper">
         <Paginate
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           totalPages={totalPages}
         />
-      </div>
+      </div>}
     </main>
   );
 };
