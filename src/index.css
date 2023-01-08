@@ -67,7 +67,6 @@ body {
   padding: 5ch;
   text-align: center;
   margin: 0 auto;
-  max-width: 90ch;
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -81,6 +80,9 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .color-text {
@@ -119,8 +121,7 @@ body {
   opacity: 0.8;
 }
 .fav-selected {
-  color: white;
-  background-color: var(--accent);
+  color: var(--accent);
 }
 .card {
   margin: 10px;
@@ -144,6 +145,7 @@ body {
 
 .card-header img {
   width: 100%;
+  min-height: 100px;
   height: 100px;
   object-fit: cover;
   filter: drop-shadow(8px 8px 10px gray);
@@ -159,7 +161,20 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  min-height: 100px;
+  min-height: 150px;
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    margin: 2;
+    width: 200px
+  }
+  .flex-left {
+  margin-top: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 }
 
 h1 {

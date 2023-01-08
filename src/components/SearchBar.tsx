@@ -1,18 +1,25 @@
-import React from "react";
+import React, { memo } from "react";
 
-const SearchBar: React.FC = () => {
+
+interface Props {
+  searchInput: string
+  setSearchInput: React.Dispatch<React.SetStateAction<string>>
+}
+const SearchBar: React.FC<Props> = ({searchInput, setSearchInput}) => {
   return (
     <div className="search-container">
       <input
         type="text"
         name="search"
+        value={searchInput ?? ""}
+        onChange={(e) => setSearchInput(e.target.value)}
         placeholder="Search..."
         className="input"
       />
 
       <svg
-        width={"32px"}
-        height={"32px"}
+        width={"24px"}
+        height={"24px"}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -30,4 +37,4 @@ const SearchBar: React.FC = () => {
   );
 };
 
-export default SearchBar;
+export default memo(SearchBar);
