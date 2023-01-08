@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { ICharacter } from "../interfaces";
 import { DEFAULT_DISNEY_IMAGE } from "../constants";
+import { Link } from "react-router-dom";
 
 interface props {
   character: ICharacter
@@ -22,7 +23,7 @@ const Card: React.FC<props> = ({ character, onFavClick, isFav }) => {
         <svg
           width={"32px"}
           height={"32px"}
-          xmlns="http://www.w3.org/2000/svg"
+          xmlns="http://www.w3.org//svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
@@ -36,6 +37,8 @@ const Card: React.FC<props> = ({ character, onFavClick, isFav }) => {
           />
         </svg>
       </div>
+            <Link  to={`/character/${character._id}`}>
+
       <div className="card">
         <div className="card-header">
           <img
@@ -48,7 +51,9 @@ const Card: React.FC<props> = ({ character, onFavClick, isFav }) => {
         <div className="card-body">
           <h2>{character.name}</h2>
         </div>
-      </div>
+        </div>
+        
+        </Link>
     </div>
   );
 };

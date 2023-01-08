@@ -6,6 +6,7 @@ export interface ICharacter {
   name: string;
   parkAttractions: string[];
   shortFilms: string[];
+  tvShows: string[];
   url: string;
   videoGames: string[];
   _id: number;

@@ -3,9 +3,9 @@ import axios from "axios";
 import Paginate from "./Paginate";
 import Card from "./Card";
 import { ICharacter } from "../interfaces";
-import SearchBar from "./SearchBar";
 import TopBar from "./TopBar";
 import NoFavoritesComponent from "./NoFavoritesComponent";
+import { Link } from "react-router-dom";
 
 const Characters = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
@@ -35,8 +35,9 @@ const Characters = () => {
               setCharacters(c.data);
               setTotalPages(c.totalPages);
               setIsLoading(false);
-            }, 2000);
-          });
+            }, 1000);
+          })
+          .catch((err) => console.log(err));
       } else {
         axios
           .get(`https://api.disneyapi.dev/character?name=${searchInput}`)
@@ -47,8 +48,9 @@ const Characters = () => {
               setCharacters(c.data);
               setTotalPages(c.totalPages);
               setIsLoading(false);
-            }, 2000);
-          });
+            }, 1000);
+          })
+          .catch((err) => console.log(err));
       }
     }
   }, [all, currentPage, searchInput]);
@@ -83,11 +85,13 @@ const Characters = () => {
   );
 
   return (
-    <main className="light container">
-      <div className="flex">
-        <h1 className="animate-in color-text">Disney</h1>
-        <h1 className="animate-in">Characters</h1>
-      </div>
+    <main className="container">
+      <Link to={"/"}>
+        <div className="flex">
+          <h1 className="animate-in color-text">Disney</h1>
+          <h1 className="animate-in">Characters</h1>
+        </div>
+      </Link>
       <div className="flex-left">
         <TopBar
           searchInput={searchInput}

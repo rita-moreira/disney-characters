@@ -1,21 +1,9 @@
 :root {
-  --coal: #0f0d0e;
   --charcoal: #231f20;
-  --charcoal-10: rgba(35, 31, 32, 0.1);
-  --charcoal-50: rgba(35, 31, 32, 0.5);
-  --gray: #262522;
-  --yellow: #fcba28;
   --pink: #ffeaf0;
   --pinkred: #f42c38;
-  --green: #0ba95b;
-  --purple: #7b5ea7;
-  --biege-body: #fffbe3;
-  --biege: #f9f4da;
-  --biege-10: rgba(249, 244, 218, 0.1);
+  --pinkredlight: #ffdadc;
   --biege-50: rgba(249, 244, 218, 0.5);
-  --dark-blue: #22303c;
-  --orange: #fc7428;
-  --red: #b12228;
   --white: #ffffff;
 }
 
@@ -28,6 +16,10 @@ body,
   height: 100%;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
 body {
   font-family: "WaltographRegular";
   font-weight: normal;
@@ -36,39 +28,13 @@ body {
   color: var(--charcoal);
 }
 
-.dark {
-  background: var(--dark-blue);
-  color: var(--white);
-  --bg: var(--dark-blue);
-  --bg-alt: var(--charcoal);
-  --color: var(--biege);
-  --color-muted: var(--biege-50);
-  --color-inverse: var(--charcoal);
-  --border-color: var(--biege-10);
-  --accent: var(--yellow);
-}
-
-.light {
-  --bg: var(--pink);
-  --bg-alt: var(--biege);
-  --color: var(--charcoal);
-  --color-muted: var(--charcoal-50);
-  --color-inverse: var(--biege);
-  --border-color: var(--charcoal-10);
-  --accent: var(--pinkred);
-}
-
-.dark,
-.light {
-  min-height: 100%;
-}
-
 .container {
   padding: 5ch;
   text-align: center;
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
+  min-height: 100%;
 }
 
 .flex {
@@ -86,7 +52,7 @@ body {
 }
 
 .color-text {
-  color: var(--accent);
+  color: var(--pinkred);
   margin: 10px;
 }
 
@@ -114,18 +80,18 @@ body {
   height: 32px;
   margin-top: -10px;
   z-index: 1;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   border-radius: 50%;
   color: black;
-  background-color: white;
+  background-color: var(--white);
   opacity: 0.8;
 }
 .fav-selected {
-  color: var(--accent);
+  color: var(--pinkred);
 }
 .card {
   margin: 10px;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
   border-radius: 15px 50px;
   overflow: hidden;
   width: 150px;
@@ -138,9 +104,9 @@ body {
 }
 
 .card-container:hover .card {
-  background-color: white;
-  border-color: var(--accent);
-  box-shadow: 4px 4px 10px gray;
+  background-color: var(--pinkredlight);
+  border-color: var(--pinkred);
+  border-width: 1px;
 }
 
 .card-header img {
@@ -148,7 +114,7 @@ body {
   min-height: 100px;
   height: 100px;
   object-fit: cover;
-  filter: drop-shadow(8px 8px 10px gray);
+  filter: drop-shadow(8px 8px 10px var(--biege-50));
 }
 .card:hover + .fav {
   transform: scale(1.1);
@@ -164,40 +130,74 @@ body {
   min-height: 150px;
 }
 
+ul {
+  text-align: center;
+  padding: 0;
+  margin: 10;
+}
+
+.li-paper {
+  width: 400px;
+  min-height: 200px;
+  margin: 10px;
+  display: inline-flex;
+  background-color: var(--pinkredlight);
+  border: 2px solid var(--white);
+  border-radius: 15px 50px;
+  overflow: hidden;
+}
+
+.paper-box {
+  padding: 30px;
+  width: 400px;
+  min-height: 200px;
+}
+
 @media only screen and (max-width: 500px) {
   .card {
     margin: 2;
-    width: 200px
+    width: 200px;
   }
   .flex-left {
-  margin-top: 100px;
-  margin-left: 10px;
-  margin-right: 10px;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+.li-paper {
+  width: 100%
 }
-
+.paper-box {
+  width: 100%;
+}
 }
 
 h1 {
   padding: 0;
   margin: 0;
   font-size: 40px;
+    color: var(--charcoal);
+
 }
 h2 {
   padding: 0;
   margin: 0;
-  font-size: 24px;
+  font-size: 32px;
+  color: var(--charcoal);
+  margin-bottom: 20px;
 }
 
 p {
   padding: 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 20px;
+  text-align: left;
 }
 
 h4 {
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .animate-in {
@@ -218,7 +218,7 @@ h4 {
 /* search input */
 .search-container {
   background: transparent;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--pinkred);
   height: 30px;
   border-radius: 8px;
   padding: 10px 20px;
@@ -237,10 +237,6 @@ h4 {
   transition: 0.8s;
 }
 
-.search-container .btn .fas {
-  color: #aa00ff;
-}
-
 button,
 .btn {
   appearance: none;
@@ -249,7 +245,7 @@ button,
   justify-content: center;
   padding: 10px 16px;
   border-radius: 8px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--pinkred);
   background-color: transparent;
   font-weight: 500;
   font-size: 14px;
@@ -259,7 +255,7 @@ button,
 }
 
 .btn-selected {
-  background-color: var(--accent);
+  background-color: var(--pinkred);
   color: white;
   font-weight: 700;
 }

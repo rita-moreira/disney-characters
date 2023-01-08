@@ -25,6 +25,7 @@ const Paginate: React.FC<Props> = ({
     <>
       <svg
         onClick={handlePrevPage}
+        style={{ cursor: 'pointer'}}
         width={16}
         height={16}
         xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +44,7 @@ const Paginate: React.FC<Props> = ({
       <h4>{currentPage}</h4>
       <svg
         onClick={handleNextPage}
+        style={{ cursor: 'pointer'}}
         width={16}
         height={16}
         xmlns="http://www.w3.org/2000/svg"
