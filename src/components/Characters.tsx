@@ -102,6 +102,7 @@ const Characters = () => {
             alt="loading"
             src="https://www.pngall.com/wp-content/uploads/2018/05/Disney-PNG.png"
             width={"150px"}
+            style={{ marginTop: 50 }}
           />
           <h1>Loading...</h1>
         </>
@@ -123,7 +124,7 @@ const Characters = () => {
             );
           })}
       </div>
-      {totalPages > 1 && (
+      {!isLoading && totalPages > 1 && (
         <div className="paper">
           <Paginate
             currentPage={currentPage}
