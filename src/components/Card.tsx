@@ -49,7 +49,7 @@ const Card: React.FC<props> = ({ character, onFavClick, isFav }) => {
           />
         </div>
         <div className="card-body">
-          <h2>{character.name}</h2>
+          <h3>{character.name}</h3>
         </div>
         </div>
         

@@ -1,7 +1,6 @@
 import React from "react";
-import "./App.css";
 import Characters from "./components/Characters";
-import { Link, BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SingleCharacter from "./components/SingleCharacter";
 
 function App() {
